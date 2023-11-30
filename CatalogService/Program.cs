@@ -1,3 +1,7 @@
+using CatalogService.Extensions;
+using Infrastructure;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,7 +11,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCatalogDbContext(builder.Configuration);
+
 var app = builder.Build();
+
+//Migrations
+app.UseMigrations();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
