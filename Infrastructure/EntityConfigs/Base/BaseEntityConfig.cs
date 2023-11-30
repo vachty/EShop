@@ -20,9 +20,9 @@ namespace Infrastructure.EntityConfigs.Base
 			builder.HasKey(p => p.Id);
 			builder.Property(p => p.Id).IsRequired();
 			builder.Property(p => p.CreatedOn).IsRequired();
-			builder.Property(p => p.CreatedBy).IsRequired();
+			builder.Property(p => p.CreatedBy).HasMaxLength(50).IsRequired();
 			builder.Property(p => p.UpdatedOn).IsRequired();
-			builder.Property(p => p.UpdatedBy).IsRequired();
+			builder.Property(p => p.UpdatedBy).HasMaxLength(50).IsRequired();
 		}
 	}
 }
