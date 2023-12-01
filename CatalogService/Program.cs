@@ -1,6 +1,11 @@
 using CatalogService.Extensions;
 using Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Versioning;
+using Service.Handlers.Base;
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +17,15 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddCatalogDbContext(builder.Configuration);
+
+//AutoMapper DI
+builder.Services.AddAutoMapper(Assembly.GetAssembly(typeof(Service.Mappers.Mappings.DomainToDtoMappingProfile)));
+
+//Other components DI
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(BaseHandler<,>).GetTypeInfo().Assembly));
+builder.Services.Register();
+
+builder.Services.SetUpRoutes();
 
 var app = builder.Build();
 

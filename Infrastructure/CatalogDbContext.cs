@@ -12,7 +12,7 @@ namespace Infrastructure
 	/// <summary>
 	/// The Catalog DB context
 	/// </summary>
-	public class CatalogDbContext : DbContext
+	public class CatalogDbContext : DbContext, ICatalogDbContext
 	{
 		public DbSet<Product> Products { get; set; }
 
@@ -24,6 +24,5 @@ namespace Infrastructure
 		{
 			new ProductEntityConfig().Configure(builder.Entity<Product>());
 		}
-		
 	}
 }
