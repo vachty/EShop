@@ -49,7 +49,7 @@ namespace Infrastructure.Repositories.Base
 		/// <inheritdoc/>
 		public virtual async Task<TEntity> GetAsync(Guid id)
 		{
-			return await GetAllInternal().FirstOrDefaultAsync(x => x.Equals(id));
+			return await GetAllInternal().FirstOrDefaultAsync(x => x.Id.Equals(id));
 		}
 
 		/// <inheritdoc/>

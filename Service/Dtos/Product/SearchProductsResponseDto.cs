@@ -7,6 +7,6 @@ namespace Service.Dtos.Product
     /// </summary>
     public class SearchProductsResponseDto : BaseResponseDto
     {
-        public ICollection<ProductResponseDto> Products { get; set; }
+        public ICollection<ProductResponseDto> Products { get; set; } = new List<ProductResponseDto>();
     }
 }

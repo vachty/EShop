@@ -20,5 +20,26 @@ namespace CatalogService.Extensions
 
 			return app;
 		}
+
+		public static WebApplication SetSwaggerUI(this WebApplication app)
+		{
+			if (app == null)
+			{
+				throw new ArgumentNullException(nameof(app));
+			}
+
+			// Configure the HTTP request pipeline.
+			if (app.Environment.IsDevelopment())
+			{
+				app.UseSwagger();
+				app.UseSwaggerUI(x =>
+				{
+					x.SwaggerEndpoint($"/swagger/v1/swagger.json", Constants.Constants.ApiTitleV1);
+					x.SwaggerEndpoint($"/swagger/v1/swagger.json", Constants.Constants.ApiTitleV2);
+				});
+			}
+
+			return app;
+		}
 	}
 }

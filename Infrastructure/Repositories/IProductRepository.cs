@@ -8,5 +8,6 @@ namespace Infrastructure.Repositories
 	/// </summary>
 	public interface IProductRepository : IBaseRepository<Product>
 	{
+		Task<IList<Product>> GetPagedListAsync(int pageSize, int offset);
 	}
 }

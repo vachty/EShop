@@ -2,6 +2,8 @@
 using Asp.Versioning;
 using Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace CatalogService.Extensions
 {
@@ -22,10 +24,8 @@ namespace CatalogService.Extensions
 				options.DefaultApiVersion = ApiVersion.Default;
 				options.AssumeDefaultVersionWhenUnspecified = true;
 				options.ReportApiVersions = true;
-				options.ApiVersionReader = ApiVersionReader.Combine(new UrlSegmentApiVersionReader(),
-					new HeaderApiVersionReader("x-api-version"),
-					new MediaTypeApiVersionReader("x-api-version"));
-			}).AddApiExplorer(options =>
+				options.ApiVersionReader = new UrlSegmentApiVersionReader();
+			}).AddMvc().AddApiExplorer(options =>
 			{
 				options.GroupNameFormat = "'v'VVV";
 				options.SubstituteApiVersionInUrl = true;

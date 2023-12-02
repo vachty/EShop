@@ -1,21 +1,16 @@
-﻿using Infrastructure.Repositories;
-using Service.Results;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Domain;
+using Infrastructure.Repositories;
 using Service.Dtos.Product;
 using Service.Handlers.Base;
+using Service.Results;
 
 namespace Service.Handlers
 {
-    /// <summary>
-    /// The Product handler
-    /// </summary>
-    public class ProductSearchHandler : BaseHandler<SearchProductsRequestDto, SearchProductsResponseDto>
+	/// <summary>
+	/// The Product handler
+	/// </summary>
+	public class ProductSearchHandler : BaseHandler<SearchProductsRequestDto, SearchProductsResponseDto>
 	{
 		private readonly IProductRepository _productRepository;
 		private readonly IMapper _mapper;
