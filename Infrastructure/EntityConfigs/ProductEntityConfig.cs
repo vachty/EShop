@@ -15,7 +15,7 @@ namespace Infrastructure.EntityConfigs
 
 			builder.Property(p => p.Name).HasMaxLength(50).IsRequired();
 			builder.Property(p => p.ImgUri).HasMaxLength(300).IsRequired();
-			builder.Property(p => p.Price).IsRequired();
+			builder.Property(p => p.Price).HasPrecision(18,2).IsRequired();
 			builder.Property(p => p.Description).IsRequired(false);
 		}
 	}
