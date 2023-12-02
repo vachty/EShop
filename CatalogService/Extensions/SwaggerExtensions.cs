@@ -14,7 +14,7 @@ namespace CatalogService.Extensions
 				Url = new Uri("https://github.com/vachty/EShop")
 			};
 
-			var title = "Catalog service API V1";
+			var title = "Catalog service API";
 			var version = "v1";
 
 			services.AddSwaggerGen(x =>
@@ -22,14 +22,14 @@ namespace CatalogService.Extensions
 				x.SwaggerDoc("v1", new OpenApiInfo()
 				{
 					Version = version,
-					Title = title,
+					Title = title + " V1",
 					Contact = contact
 				});
 
 				x.SwaggerDoc("v2", new OpenApiInfo()
 				{
 					Version = version,
-					Title = title,
+					Title = title + " V2",
 					Contact = contact
 				});
 

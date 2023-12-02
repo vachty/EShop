@@ -35,7 +35,7 @@ namespace CatalogService.Extensions
 				app.UseSwaggerUI(x =>
 				{
 					x.SwaggerEndpoint($"/swagger/v1/swagger.json", Constants.Constants.ApiTitleV1);
-					x.SwaggerEndpoint($"/swagger/v1/swagger.json", Constants.Constants.ApiTitleV2);
+					x.SwaggerEndpoint($"/swagger/v2/swagger.json", Constants.Constants.ApiTitleV2);
 				});
 			}
 

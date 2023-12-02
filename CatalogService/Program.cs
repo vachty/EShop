@@ -10,8 +10,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddSwagger();
-
 builder.Services.AddCatalogDbContext(builder.Configuration);
 
 //AutoMapper DI
@@ -22,6 +20,7 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(Bas
 builder.Services.Register();
 
 builder.Services.SetUpRoutes();
+builder.Services.AddSwagger();
 
 var app = builder.Build();
 
