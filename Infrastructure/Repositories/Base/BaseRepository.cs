@@ -89,6 +89,10 @@ namespace Infrastructure.Repositories.Base
 			Entities.Update(entity);
 		}
 
+		/// <summary>
+		/// Get all internally
+		/// </summary>
+		/// <returns></returns>
 		private IQueryable<TEntity> GetAllInternal()
 		{
 			return Entities;

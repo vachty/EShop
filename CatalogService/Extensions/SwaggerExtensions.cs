@@ -1,10 +1,17 @@
 ﻿using Microsoft.OpenApi.Models;
-using static System.Net.WebRequestMethods;
 
 namespace CatalogService.Extensions
 {
+	/// <summary>
+	/// The Extensions for Swagger
+	/// </summary>
 	public static class SwaggerExtensions
 	{
+		/// <summary>
+		/// Adds the swagget to the ServiceCollection
+		/// </summary>
+		/// <param name="services"></param>
+		/// <returns></returns>
 		public static IServiceCollection AddSwagger(this IServiceCollection services)
 		{
 			var contact = new OpenApiContact()

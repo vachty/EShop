@@ -9,11 +9,16 @@ namespace Service.Mappers.Base
 	{
 		private readonly IMapper _mapper;
 
+		/// <summary>
+		/// Create instance of the mapper
+		/// </summary>
+		/// <param name="mapper"></param>
 		public BaseMapper(IMapper mapper)
 		{
 			this._mapper = mapper;
 		}
 
+		/// <inheritdoc/>
 		public TDestination Map<TSource, TDestination>(TSource source)
 		{
 			if (source == null) throw new NullReferenceException(nameof(source));

@@ -2,6 +2,9 @@
 
 namespace Service.Dtos.Product
 {
+    /// <summary>
+    /// The Product Response dto
+    /// </summary>
     public class ProductResponseDto : BaseResponseDto
     {
 	    public string Name { get; set; }

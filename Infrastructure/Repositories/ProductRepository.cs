@@ -9,10 +9,15 @@ namespace Infrastructure.Repositories
 	/// </summary>
 	public class ProductRepository : BaseRepository<Product>, IProductRepository
 	{
+		/// <summary>
+		/// Create instance of the repository
+		/// </summary>
+		/// <param name="dbContext"></param>
 		public ProductRepository(DbContext dbContext) : base(dbContext)
 		{
 		}
 
+		/// <inheritdoc/>
 		public async Task<IList<Product>> GetPagedListAsync(int pageSize, int offset)
 		{
 			return await Entities.Skip(offset).Take(pageSize).ToListAsync();

@@ -9,6 +9,10 @@ namespace Infrastructure.EntityConfigs.Base
 	public interface IBaseEntityConfig<TEntity>
 		where TEntity : class, IBaseEntity
 	{
+		/// <summary>
+		/// Configures the entity/table
+		/// </summary>
+		/// <param name="builder"></param>
 		public void Configure(EntityTypeBuilder<TEntity> builder);
 	}
 }

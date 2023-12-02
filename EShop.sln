@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Postman", "Postman", "{073A
 		Postman\catalog service.postman_collection.json = Postman\catalog service.postman_collection.json
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{73B30C37-5C0A-4E86-816F-A493CC2154D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{4990B3B8-E2E1-452F-A121-CBBE192C74D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4990B3B8-E2E1-452F-A121-CBBE192C74D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4990B3B8-E2E1-452F-A121-CBBE192C74D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73B30C37-5C0A-4E86-816F-A493CC2154D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73B30C37-5C0A-4E86-816F-A493CC2154D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73B30C37-5C0A-4E86-816F-A493CC2154D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73B30C37-5C0A-4E86-816F-A493CC2154D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

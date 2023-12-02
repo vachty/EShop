@@ -1,5 +1,4 @@
 ﻿using Domain.Base;
-using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories.Base
 {

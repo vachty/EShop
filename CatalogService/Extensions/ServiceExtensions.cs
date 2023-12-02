@@ -1,14 +1,20 @@
-﻿using System.Reflection;
-using Asp.Versioning;
+﻿using Asp.Versioning;
 using Infrastructure;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Reflection;
 
 namespace CatalogService.Extensions
 {
+	/// <summary>
+	/// The extensions for ServiceCollection
+	/// </summary>
 	public static class ServiceExtensions
 	{
+		/// <summary>
+		/// Set ups the routing and versioning
+		/// </summary>
+		/// <param name="services"></param>
+		/// <returns></returns>
 		public static IServiceCollection SetUpRoutes(this IServiceCollection services)
 		{
 			// configure route options
@@ -34,6 +40,13 @@ namespace CatalogService.Extensions
 			return services;
 		}
 
+		/// <summary>
+		/// Adds the dbcontext to the service collection
+		/// </summary>
+		/// <param name="services"></param>
+		/// <param name="configuration"></param>
+		/// <returns></returns>
+		/// <exception cref="ArgumentNullException"></exception>
 		public static IServiceCollection AddCatalogDbContext(this IServiceCollection services, IConfiguration configuration)
 		{
 			if (services == null)

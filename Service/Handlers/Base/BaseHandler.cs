@@ -1,20 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MediatR;
-using Service.Dtos.Base;
+﻿using Service.Dtos.Base;
 using Service.Results;
 
 namespace Service.Handlers.Base
 {
+	/// <summary>
+	/// The BaseHandler 
+	/// </summary>
+	/// <typeparam name="TRequest"></typeparam>
+	/// <typeparam name="TResponse"></typeparam>
 	public abstract class BaseHandler<TRequest, TResponse> : IBaseHandler<TRequest, TResponse>
 		where TRequest : IBaseRequestDto<TResponse>
 		where TResponse : IBaseResponseDto
 	{
+		/// <summary>
+		/// Handles the request / response, called by mediator
+		/// </summary>
+		/// <param name="request"></param>
+		/// <param name="cancellationToken"></param>
+		/// <returns></returns>
 		public abstract Task<IApiResult<TResponse>> Handle(TRequest request, CancellationToken cancellationToken);
 
+		/// <summary>
+		/// Creates the response dto
+		/// </summary>
+		/// <typeparam name="TResponseDto"></typeparam>
+		/// <param name="errorCode"></param>
+		/// <returns></returns>
 		protected virtual TResponseDto CreateResponseDto<TResponseDto>(string? errorCode = null) where TResponseDto : IBaseResponseDto, new()
 		{
 			var response = new TResponseDto()

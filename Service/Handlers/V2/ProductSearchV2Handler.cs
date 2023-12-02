@@ -8,17 +8,33 @@ using Service.Results;
 
 namespace Service.Handlers.V2
 {
+	/// <summary>
+	/// The Product Search V2 Handler
+	/// </summary>
 	public class ProductSearchV2Handler : BaseHandler<SearchProductV2RequestDto, SearchProductV2ResponseDto>
 	{
+		/// <summary>
+		/// The Product repository
+		/// </summary>
 		private readonly IProductRepository _productRepository;
+
+		/// <summary>
+		/// The mapper
+		/// </summary>
 		private readonly IMapper _mapper;
 
+		/// <summary>
+		/// Create instance of the handler
+		/// </summary>
+		/// <param name="productRepository"></param>
+		/// <param name="mapper"></param>
 		public ProductSearchV2Handler(IProductRepository productRepository, IMapper mapper)
 		{
 			this._productRepository = productRepository;
 			this._mapper = mapper;
 		}
 
+		/// <inheritdoc/>
 		public override async Task<IApiResult<SearchProductV2ResponseDto>> Handle(SearchProductV2RequestDto request, CancellationToken cancellationToken)
 		{
 			var result = new ApiResult<SearchProductV2ResponseDto>();

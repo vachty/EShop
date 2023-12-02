@@ -3,8 +3,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CatalogService.Extensions
 {
+	/// <summary>
+	/// The Extensions for WebApplication
+	/// </summary>
 	public static class AppBuilderExtensions
 	{
+		/// <summary>
+		/// Use and apply the migrations to the database
+		/// </summary>
+		/// <param name="app"></param>
+		/// <returns></returns>
+		/// <exception cref="ArgumentNullException"></exception>
 		public static WebApplication UseMigrations(this WebApplication app)
 		{
 			if (app == null)
@@ -21,6 +30,12 @@ namespace CatalogService.Extensions
 			return app;
 		}
 
+		/// <summary>
+		/// Set ups the swagger
+		/// </summary>
+		/// <param name="app"></param>
+		/// <returns></returns>
+		/// <exception cref="ArgumentNullException"></exception>
 		public static WebApplication SetSwaggerUI(this WebApplication app)
 		{
 			if (app == null)
