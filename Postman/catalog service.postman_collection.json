@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "c356b959-fcfa-4112-82e7-69998db9c1b2",
+		"name": "catalog service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "V2",
+			"item": [
+				{
+					"name": "GetProductListPaged",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"requestId\": \"6eb2a96f-5d84-4f3d-dafc-464edaecc2f6\",\r\n      \"Offset\": 0,\r\n      \"PageSize\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:54271/api/v2/product/productlist",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "54271",
+							"path": [
+								"api",
+								"v2",
+								"product",
+								"productlist"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GetProductList",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"requestId\": \"6eb2a96f-5d84-4f3d-dafc-464edaecc2f6\"\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:54271/api/v1/product/productlist",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "54271",
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"productlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PartialUpdate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"ProductId\": \"5DDC80FD-00CA-4C8A-8C6F-01AAC3BEB24A\",\r\n   \"Description\": \"Updated desc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:54271/api/v1/product/partialupdate",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "54271",
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"partialupdate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetProduct",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ProductId\" : \"552E86CB-50BB-42AF-A2E3-0A1AEFE4FC54\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:54271/api/v1/product/product",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "54271",
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"product"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

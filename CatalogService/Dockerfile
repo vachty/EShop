@@ -8,6 +8,9 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 COPY ["CatalogService/CatalogService.csproj", "CatalogService/"]
+COPY ["Domain/Domain.csproj", "Domain/"]
+COPY ["Infrastructure/Infrastructure.csproj", "Infrastructure/"]
+COPY ["Service/Service.csproj", "Service/"]
 RUN dotnet restore "CatalogService/CatalogService.csproj"
 COPY . .
 WORKDIR "/src/CatalogService"
