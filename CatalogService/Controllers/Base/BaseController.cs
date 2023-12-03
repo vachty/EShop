@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Service.Dtos;
 using Service.Dtos.Base;
 using Service.Results;
 
@@ -10,6 +11,7 @@ namespace CatalogService.Controllers.Base
 	/// </summary>
 	[ApiController]
 	[Produces("application/json")]
+	[ProducesResponseType(typeof(ErrorDto), 500)]
 	[Route("api/v{api-version:apiVersion}/[controller]")]
 	public abstract class BaseController : ControllerBase
 	{
@@ -44,7 +46,7 @@ namespace CatalogService.Controllers.Base
 				return Ok(apiDataResult.Data);
 			}
 
-			return Ok(apiDataResult.Data);
+			return Problem(apiDataResult.GetErrorMessage(), null, Int32.Parse(apiDataResult.ErrorCode));
 		}
 	}
 }

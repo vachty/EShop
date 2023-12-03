@@ -19,26 +19,5 @@ namespace Service.Handlers.Base
 		/// <param name="cancellationToken"></param>
 		/// <returns></returns>
 		public abstract Task<IApiResult<TResponse>> Handle(TRequest request, CancellationToken cancellationToken);
-
-		/// <summary>
-		/// Creates the response dto
-		/// </summary>
-		/// <typeparam name="TResponseDto"></typeparam>
-		/// <param name="errorCode"></param>
-		/// <returns></returns>
-		protected virtual TResponseDto CreateResponseDto<TResponseDto>(string? errorCode = null) where TResponseDto : IBaseResponseDto, new()
-		{
-			var response = new TResponseDto()
-			{
-				RequestId = Guid.NewGuid()
-			};
-
-			if (errorCode != null)
-			{
-				response.ErrorCode = errorCode;
-			}
-
-			return response;
-		}
 	}
 }

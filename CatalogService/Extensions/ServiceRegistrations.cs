@@ -1,7 +1,6 @@
 ﻿using Infrastructure;
 using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
-using Service.Mappers.Base;
 
 namespace CatalogService.Extensions
 {
@@ -17,7 +16,6 @@ namespace CatalogService.Extensions
 		/// <returns></returns>
 		public static IServiceCollection Register(this IServiceCollection services)
 		{
-			services.AddScoped<IBaseMapper, BaseMapper>();
 			services.AddScoped<DbContext, CatalogDbContext>();
 			services.AddScoped<IProductRepository, ProductRepository>();
 

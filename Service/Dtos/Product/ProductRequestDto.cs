@@ -7,6 +7,9 @@ namespace Service.Dtos.Product
     /// </summary>
     public class ProductRequestDto : BaseRequestDto<ProductResponseDto>
     {
-        public Guid ProductId;
+        /// <summary>
+        /// The Id of the Product
+        /// </summary>
+        public Guid ProductId { get; set; }
     }
 }

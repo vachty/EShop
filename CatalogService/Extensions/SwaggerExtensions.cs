@@ -1,4 +1,6 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using Microsoft.Extensions.Options;
+using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 namespace CatalogService.Extensions
 {
@@ -8,7 +10,7 @@ namespace CatalogService.Extensions
 	public static class SwaggerExtensions
 	{
 		/// <summary>
-		/// Adds the swagget to the ServiceCollection
+		/// Adds the swagger to the ServiceCollection
 		/// </summary>
 		/// <param name="services"></param>
 		/// <returns></returns>
@@ -39,6 +41,18 @@ namespace CatalogService.Extensions
 					Title = title + " V2",
 					Contact = contact
 				});
+
+				var executingAssembly = Assembly.GetExecutingAssembly();
+				x.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, $"{executingAssembly.GetName().Name}.xml"));
+
+				var referencedProjectsXmlDocPaths = executingAssembly.GetReferencedAssemblies()
+					.Where(assembly => assembly.Name != null)
+					.Select(assembly => Path.Combine(AppContext.BaseDirectory, $"{assembly.Name}.xml"))
+					.Where(path => File.Exists(path));
+				foreach (var xmlDocPath in referencedProjectsXmlDocPaths)
+				{
+					x.IncludeXmlComments(xmlDocPath);
+				}
 
 				x.ResolveConflictingActions(apiDesc => apiDesc.First());
 				x.DocInclusionPredicate((docName, apiDesc) => apiDesc.GroupName == docName);

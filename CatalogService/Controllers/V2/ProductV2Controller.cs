@@ -4,6 +4,8 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Service.Dtos.Product.V2;
 using System.Net;
+using CatalogService.Swagger.Examples;
+using Swashbuckle.AspNetCore.Filters;
 
 namespace CatalogService.Controllers.V2
 {
@@ -28,10 +30,11 @@ namespace CatalogService.Controllers.V2
 		/// </summary>
 		/// <param name="productRequest"></param>
 		/// <returns></returns>
-		[HttpPost]
+		[HttpGet]
 		[Route("ProductList")]
 		[Consumes("application/json")]
 		[ProducesResponseType(typeof(SearchProductV2ResponseDto), (int)HttpStatusCode.OK)]
+		[SwaggerRequestExample(typeof(SearchProductV2ResponseDto), typeof(ProductSearchV2RequestDtoExample))]
 		public async Task<IActionResult> GetPagedProducts([FromBody] SearchProductV2RequestDto productRequest)
 		{
 			return ApiResponse(await Mediator.Send(productRequest));

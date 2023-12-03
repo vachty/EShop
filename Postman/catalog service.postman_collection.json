@@ -10,12 +10,15 @@
 			"item": [
 				{
 					"name": "GetProductListPaged",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n      \"requestId\": \"6eb2a96f-5d84-4f3d-dafc-464edaecc2f6\",\r\n      \"Offset\": 2,\r\n      \"PageSize\": 4\r\n}",
+							"raw": "{\r\n      \"requestId\": \"6eb2a96f-5d84-4f3d-dafc-464edaecc2f6\",\r\n      \"Offset\": 0,\r\n      \"PageSize\": 4\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -43,8 +46,11 @@
 		},
 		{
 			"name": "GetProductList",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [
 					{
 						"key": "Content-Type",
@@ -99,6 +105,40 @@
 						"v1",
 						"product",
 						"partialupdate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetProduct",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ProductId\" : \"552E86CB-50BB-42AF-A2E3-0A1AEFE4FC54\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:54271/api/v1/product/product",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "54271",
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"product"
 					]
 				}
 			},

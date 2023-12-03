@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using Service.Dtos.Product;
 using System.Net;
 using Asp.Versioning;
+using CatalogService.Swagger.Examples;
 using Service.Dtos.Product.Update;
+using Swashbuckle.AspNetCore.Filters;
 
 namespace CatalogService.Controllers
 {
@@ -24,14 +26,30 @@ namespace CatalogService.Controllers
 		}
 
 		/// <summary>
+		/// Gets the product by Id
+		/// </summary>
+		/// <param name="productRequest"></param>
+		/// <returns></returns>
+		[HttpGet]
+		[Route("Product")]
+		[Consumes("application/json")]
+		[ProducesResponseType(typeof(ProductResponseDto), (int)HttpStatusCode.OK)]
+		[SwaggerRequestExample(typeof(ProductRequestDto), typeof(ProductRequestDtoExample))]
+		public async Task<IActionResult> GetProduct([FromBody] ProductRequestDto productRequest)
+		{
+			return ApiResponse(await Mediator.Send(productRequest));
+		}
+
+		/// <summary>
 		/// Gets the products
 		/// </summary>
 		/// <param name="productRequest"></param>
 		/// <returns></returns>
-		[HttpPost]
+		[HttpGet]
 		[Route("ProductList")]
 		[Consumes("application/json")]
 		[ProducesResponseType(typeof(SearchProductsResponseDto), (int)HttpStatusCode.OK)]
+		[SwaggerRequestExample(typeof(SearchProductsResponseDto), typeof(SearchProductRequestDtoExample))]
 		public async Task<IActionResult> GetProducts([FromBody] SearchProductsRequestDto productRequest)
 		{
 			return ApiResponse(await Mediator.Send(productRequest));
@@ -46,6 +64,8 @@ namespace CatalogService.Controllers
 		[Route("PartialUpdate")]
 		[Consumes("application/json")]
 		[ProducesResponseType(typeof(ProductUpdateResponseDto), (int)HttpStatusCode.OK)]
+		[SwaggerRequestExample(typeof(ProductUpdateResponseDto), typeof(ProductUpdateRequestDtoExample))]
+
 		public async Task<IActionResult> PartialUpdateProduct([FromBody] ProductUpdateRequestDto updateRequest)
 		{
 			return ApiResponse(await Mediator.Send(updateRequest));
