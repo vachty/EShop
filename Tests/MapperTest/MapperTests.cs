@@ -1,9 +1,10 @@
-﻿using Domain;
+﻿using AutoMapper;
+using Domain;
 using Infrastructure;
 using Infrastructure.Repositories;
 using Service.Dtos.Product;
+using Service.Mappers.Mappings;
 using Tests.Database;
-using Tests.Mapper;
 
 namespace Tests.MapperTest
 {
@@ -22,7 +23,7 @@ namespace Tests.MapperTest
 		/// </summary>
 		public MapperTests()
 		{
-			Mapper = new TestMapper();
+			Mapper = new Mapper(new MapperConfiguration(cfg=>{cfg.AddProfile(new DomainToDtoMappingProfile());}));
 			DbContext = DbHelper.GetDbContext(false);
 			productRepository = new ProductRepository(DbContext);
 		}
@@ -30,7 +31,7 @@ namespace Tests.MapperTest
 		/// <summary>
 		/// The mapper
 		/// </summary>
-		private TestMapper Mapper { get; set; }
+		private IMapper Mapper { get; set; }
 
 		/// <summary>
 		/// The database context
